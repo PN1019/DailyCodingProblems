@@ -1,0 +1,54 @@
+This problem was asked by Facebook.
+
+Write a function that rotates a list by k elements. 
+For example, [1, 2, 3, 4, 5, 6] rotated by two becomes [3, 4, 5, 6, 1, 2]. 
+Try solving this without creating a copy of the list. 
+How many swap or move operations do you need?
+# with example we r doing left rotate here
+# ways to rotate a list in python by slicing,list comprehension & , numpy.roll() function,collections.deque.rotate()
+#As asked in the problem not to create a copy of list we will not go with the list comprehension as the list comprehension in Python returns a list 
+# Solution by slicing
+def rotate(seq, k):
+    return seq[k:] + seq[:k]
+ 
+if __name__ == '__main__':
+ 
+    nums = list(range(1,7))
+    k = 2
+ 
+    x = rotate(nums, k)
+    print(x)            # [3, 4, 5, 6,1, 2] 
+    #Note: Slicing lists does not generate copies of the objects in the list; it just copies the references to them. 
+# Solution By deque.rotate()
+from collections import deque
+
+class Solution:
+    def rotate(self, nums, k):
+        d = deque(nums)
+        d.rotate(-k)
+        nums[:] = list(d)
+        return nums
+sol=Solution()
+nums = list(range(1,7))
+k = 2
+fx_rot=sol.rotate(nums, k)
+print(fx_rot)
+#Solution By Brute force
+class Solution:
+    def rotate(self, nums, k):
+        def numReverse(start, end):
+            while start < end:
+                nums[start], nums[end] = nums[end], nums[start]
+                start += 1
+                end -= 1
+        k, n = k % len(nums), len(nums)
+        if k:
+            numReverse(0, n - 1)
+            numReverse(0, k - 1)
+            numReverse(k, n - 1)
+        return nums    
+sol=Solution()
+nums = list(range(1,7))
+k = -2
+fx_rot=sol.rotate(nums, k)
+print(fx_rot)
