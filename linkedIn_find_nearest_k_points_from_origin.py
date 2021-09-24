@@ -1,8 +1,8 @@
 #This problem was asked by LinkedIn.[Hard]
 
-#Given a list of points, a central point, and an integer k, find the nearest k points from the central point.
+#Given a list of points and an integer k, find the nearest k points from the origin.
 
-# For example, given the list of points [(0, 0), (5, 4), (3, 1)], the central point (1, 2), and k = 2, return [(0, 0), (3, 1)].
+# For example, given the list of points [(0, 0), (5, 4), (3, 1)] and k = 2, return [(0, 0), (3, 1)].
 #Solution By Sort:
 from typing import List
 
@@ -14,7 +14,7 @@ sol=Solution()
 points = [[3, 3], [5, -1], [-2, 4]]
 #points=[[0, 0], [5, 4], [3, 1]]
 K = 2
-print(f"The nearest {K} neighbors {points} from the central point are{sol.kClosest(points, K)}")  
+print(f"The nearest {K} neighbors {points} from the origin are{sol.kClosest(points, K)}")  
 #result1=[[-2, 4], [3, 3]]
 #result2=[(0, 0), (3, 1)]
     
@@ -42,7 +42,7 @@ sol=Solution()
 #points2 = [[3, 3], [5, -1], [-2, 4]]
 points1=[[0, 0], [5, 4], [3, 1]]
 K = 2
-print(f"The nearest {K} neighbors {points} from the central point are{sol.kClosest(points, K)}")  
+print(f"The nearest {K} neighbors {points} from the origin are{sol.kClosest(points, K)}")  
 #result1=[[-2, 4], [3, 3]]
 #result2=[(0, 0), (3, 1)]
        
@@ -79,7 +79,7 @@ sol=Solution()
 points = [[3, 3], [5, -1], [-2, 4]]
 #points=[[0, 0], [5, 4], [3, 1]]
 K = 2
-print(f"The nearest {K} neighbors {points} from the central point are{sol.kClosest(points, K)}")  
+print(f"The nearest {K} neighbors {points} from the origin are{sol.kClosest(points, K)}")  
 #result1=[[-2, 4], [3, 3]]
 #result2=[(0, 0), (3, 1)]
 #Time Complexity: Quick Sort - O(N) on average
@@ -100,7 +100,7 @@ sol=Solution()
 points=[[1, 3], [5, 4], [3, 1]]
 K = 2
  
-print(f"The nearest {K} neighbors {points} from the central point are{sol.kClosest(points, K)}")        
+print(f"The nearest {K} neighbors {points} from the origin are{sol.kClosest(points, K)}")        
 #result1=[[-2, 4], [3, 3]]
 #result2=[(1, 3), (3, 1)]
 
