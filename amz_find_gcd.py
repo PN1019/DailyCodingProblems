@@ -34,7 +34,7 @@ while True:
 a = set(a)
 print(f"GCD OF {n} NUMBERS IS {a}")
 
-#Solution by Euclidean algo
+#Solution by Euclidean algo with loops for more than 2 numbers
 def compute_gcd(x, y):
      
     while(y):
@@ -60,3 +60,34 @@ import functools as f
 A = [56, 42, 14]
 g = lambda a,b:a if b==0 else g(b,a%b)   #Gcd for two numbers
 print(f.reduce(lambda x,y:g(x,y),A))     #Calling gcd function throughout the list.
+
+
+# Solution using maths in fixed set of numbers:
+import math
+A=[56,42,14]
+b=A[0]  
+for j in range(1,len(A)):
+    s=math.gcd(b,A[j])
+    b=s
+print(f'GCD of array elements is {b}.')
+
+# Solution using maths.gcd for n numbers
+import math
+def compute_gcd(lst):
+    
+    if len(lst) == 0:   # trivial case
+        return -1
+    while len(lst) > 1:
+        a = lst.pop()
+        b = lst.pop()
+        c = math.gcd(a,b) if a >= b else math.gcd(b, a)
+        lst.append(c)
+    return lst.pop()
+def test_gcd():
+    assert compute_gcd([42, 56, 14]) == 14
+    assert compute_gcd([3, 6]) == 3
+    assert compute_gcd([1]) == 1
+    assert compute_gcd([]) == -1
+
+if __name__ == "__main__":
+    test_gcd()
